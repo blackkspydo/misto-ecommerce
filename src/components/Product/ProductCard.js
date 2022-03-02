@@ -12,9 +12,9 @@ const ProductCard = (props) => {
 					<p className={styles.price}>${props.product.price}</p>
 					{/* rating */}
 					<div className={styles.rating}>
-						{/* ({props.product.numRaters}) */}
+						({props.product.rating.count})
 						<Rating
-							initialValue={props.product.rating}
+							initialValue={props.product.rating.rate}
 							size={20}
 							readonly={true}
 							allowHalfIcon={true}
