@@ -11,7 +11,7 @@ const Nav = () => {
 
 	const nav = navItem.map((item) => {
 		return (
-			<li className={styles.nav__list__item}>
+			<li key={item.name} className={styles.nav__list__item}>
 				<a href={item.link} className={styles.nav__list__item__link}>
 					{item.name}
 				</a>

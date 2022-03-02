@@ -9,8 +9,10 @@ const Header = () => {
         <div className={styles.logo}>
             <Logo />
         </div>
-        <Nav />
-        <DashNav />
+        <div className={styles.navigation}>
+          <Nav />
+          <DashNav />
+        </div>
    </header>
 
  )

@@ -13,4 +13,8 @@
     text-transform: uppercase;
     padding: 10px;
     cursor: pointer;
+    color: var(--grey);
+}
+.dashNav__item:hover{
+    color: #000;
 }
