@@ -6,9 +6,11 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: unset;
+  padding: unset;
   font-family: Poppins, sans-serif;
+  border: unset;
+  background-color: unset;
 }
 
 ::selection{
