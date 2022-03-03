@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import { GrLocation } from "react-icons/gr";
-import { BsTelephone, BsEnvelope } from "react-icons/bs";
+import { BsTelephone, BsEnvelope, BsFillSuitHeartFill } from "react-icons/bs";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
 const Footer = () => {
@@ -69,6 +69,14 @@ const Footer = () => {
 					<BsEnvelope />
 					<span>info@misto.com</span>
 				</a>
+			</div>
+
+			<div className={styles.copyright}>
+				<p> © 2022 Misto. All Rights Reserved.</p>
+				<p>
+					Made by <a href="blackkspydo.com">Blackkspydo</a> with{" "}
+					<BsFillSuitHeartFill />{" "}
+				</p>
 			</div>
 		</footer>
 	);

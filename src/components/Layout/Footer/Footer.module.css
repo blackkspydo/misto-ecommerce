@@ -7,6 +7,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 4rem 6rem;
+    position: relative;
+    padding-bottom: 6rem;
 }
 .categories{
     display: flex;
@@ -14,7 +16,7 @@
     /* align-items: center; */
     flex-direction: column;
 }
-h3{
+.footer h3{
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 10px;
@@ -48,4 +50,21 @@ h3{
 }
 .socials span{
     margin-left: 10px;
+}
+.copyright{
+    border-top: 1px solid rgb(224, 224, 224);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5rem;
+    background-color: #f5f5f5;
+}
+
+.copyright a{
+    color: #666;
+    text-decoration: none;
 }
