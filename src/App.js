@@ -7,6 +7,7 @@ import Accessories from "./components/Layout/ProductSection/Accessories";
 import SaleBanner from "./components/Layout/SaleBanner/SaleBanner";
 import Newsletter from "./components/Layout/newsletter/Newsletter";
 import Footer from "./components/Layout/Footer/Footer";
+import Blog from "./components/Layout/Blog/Blog";
 function App() {
 	return (
 		<div className="App">
@@ -19,6 +20,10 @@ function App() {
 			</div>
 			<SaleBanner />
 			<Newsletter />
+			<div className="product-section">
+			<Blog />
+			</div>
+			
 			<Footer />
 
 		</div>

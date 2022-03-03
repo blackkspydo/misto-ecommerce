@@ -1,0 +1,13 @@
+.blog{
+    max-width: 1450px;
+    margin: 2rem;
+    margin-bottom: 10rem;
+}
+
+.blog_cards{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    gap: 3%;
+}
