@@ -5,6 +5,8 @@ import Women from "./components/Layout/ProductSection/Women";
 import Men from "./components/Layout/ProductSection/Men";
 import Accessories from "./components/Layout/ProductSection/Accessories";
 import SaleBanner from "./components/Layout/SaleBanner/SaleBanner";
+import Newsletter from "./components/Layout/newsletter/Newsletter";
+import Footer from "./components/Layout/Footer/Footer";
 function App() {
 	return (
 		<div className="App">
@@ -16,6 +18,9 @@ function App() {
 			<Accessories />
 			</div>
 			<SaleBanner />
+			<Newsletter />
+			<Footer />
+
 		</div>
 	);
 }

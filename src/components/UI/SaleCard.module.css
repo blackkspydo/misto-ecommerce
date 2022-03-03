@@ -1,9 +1,9 @@
 .saleCard{
-    width: 42vw;
-    height: 20vw;
+    width: 50vw;
+    height: 30vw;
     position: relative;
     text-transform: uppercase;
-    margin-bottom: 10em;
+    /* margin-bottom: 10em; */
 }
 .saleCard__img{
     width: 100%;
