@@ -17,3 +17,8 @@
   background: var(--grey);
   color: #fff;
 }
+.product-section{
+  max-width: 1450px;
+  margin: 0 auto;
+  margin-bottom: 8rem;
+}

@@ -1,5 +1,6 @@
 .accessoriesSection{
     margin: 2rem;
+    margin-bottom: 8rem;
 }
 .products{
     display: grid;
@@ -8,4 +9,7 @@
     justify-items: center;
     margin: 3rem;
     
+}
+.products img{
+    padding: 70px;
 }

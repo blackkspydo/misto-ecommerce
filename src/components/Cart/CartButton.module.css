@@ -2,8 +2,17 @@
     padding-top: 5px;
 }
 .cartButton__icon{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-right: 1rem;
+    overflow: hidden;
+    color: var(--grey);
+    cursor: pointer;
+    /* transition: all 0.3s ease-in-out; */
+
+}
+.cartButton__icon:hover{
+    color: #4d4d4d;
+    transition: all 0.1s ease-in-out;
 }
 .cartContainer input{
     width: 100%;
