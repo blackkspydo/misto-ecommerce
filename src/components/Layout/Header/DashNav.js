@@ -4,7 +4,10 @@ import {MdPersonOutline} from 'react-icons/md';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import styles from './DashNav.module.css';
 import CartCounter from '../../Cart/CartCounter';
-const DashNav = () => {
+const DashNav = ({showCartHandler}) => {
+    const cartToggler=()=>{
+        showCartHandler();
+    }
 	return (
 		<div className={styles.dashNav}>
 			<div className={styles.dashNav__item}>
@@ -16,7 +19,7 @@ const DashNav = () => {
 			<div className={styles.dashNav__item}>
                 <MdPersonOutline />
             </div>
-			<div className={styles.dashNav__item}>
+			<div onClick={cartToggler} className={styles.dashNav__item}>
                 <AiOutlineShoppingCart /> <CartCounter />
             </div>
 		</div>

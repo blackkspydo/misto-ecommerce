@@ -2,7 +2,6 @@ import styles from "./Blog.module.css";
 import  blogdata  from "../../../store/Data";
 import BlogCard from "../../UI/BlogCard";
 const Blog = () => {
-    console.log(blogdata);
     const blogs = blogdata.map(item=>{
         return <BlogCard key={item.id} blog={item} />
     })

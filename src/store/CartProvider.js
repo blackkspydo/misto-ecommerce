@@ -1,5 +1,5 @@
 import CartContext from "./cart-context";
-import { useReducer } from "react";
+import { useReducer} from "react";
 
 const cartReducer = (state, action) => {
 	switch (action.type) {
@@ -55,6 +55,7 @@ const CartProvider = (props) => {
 			});
 		},
 	};
+
 	return (
 		<CartContext.Provider value={cartContext}>
 			{props.children}

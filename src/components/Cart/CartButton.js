@@ -11,20 +11,21 @@ const CartButton = (props) => {
 	const ctx = useContext(CartContext);
 	const addToCartHandler = (product) => {
 		setadded(!added);
-		if (!added){
+		if (!added) {
 			ctx.addItem(product);
-		}else{
+		} else {
 			ctx.removeItem(product.id);
 		}
-
 	};
 
-	// get cart from local storage
 	return (
 		<div className={styles.cartContainer}>
 			{/* <input type="number" min={0} max={100} /> */}
-			<button onClick={()=>addToCartHandler(props.product)} className={styles.cartButton}>
-				{!added ?  (
+			<button
+				onClick={() => addToCartHandler(props.product)}
+				className={styles.cartButton}
+			>
+				{!added ? (
 					<motion.span className={styles.cartButton__icon}>
 						<MdOutlineAddShoppingCart />
 					</motion.span>

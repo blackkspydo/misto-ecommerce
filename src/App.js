@@ -1,5 +1,5 @@
 import "./App.css";
-
+import { useState } from "react";
 import Header from "./components/Layout/Header/Header";
 import Hero from "./components/Layout/Hero/Hero";
 import Women from "./components/Layout/ProductSection/Women";
@@ -11,9 +11,14 @@ import Footer from "./components/Layout/Footer/Footer";
 import Blog from "./components/Layout/Blog/Blog";
 import Cart from "./components/Cart/Cart";
 function App() {
+	const [cartIsShown, setCartIsShown] = useState(false)
+	const toggleCart = () => {
+		setCartIsShown(!cartIsShown)
+	}
 	return (
 		<div className="App">
-			<Header />
+			 {cartIsShown&&<Cart onCloseCart = {toggleCart} />}
+			<Header showCartHandler={toggleCart}/>
 			<Hero />
 			<div className="product-section">
 			<Women />
@@ -25,7 +30,7 @@ function App() {
 			<div className="product-section">
 			<Blog />
 			</div>
-			<Cart />
+	
 			<Footer />
 
 		</div>
