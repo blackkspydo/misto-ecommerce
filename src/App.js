@@ -12,18 +12,21 @@ import Blog from "./components/Layout/Blog/Blog";
 import Cart from "./components/Cart/Cart";
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
+	// add no scroll to body
 	const noScroll = () => {
 		document.body.style.overflow = "hidden";
 	};
+
 	// remove no scroll to body
 	const scroll = () => {
 		document.body.style.overflow = "";
 	};
+	
 	const toggleCart = () => {
 		setCartIsShown((cartIsShown) => !cartIsShown);
 		!cartIsShown ? noScroll() : scroll();
 	};
-	// add no scroll to body
+
 	return (
 		<div className="App">
 			{cartIsShown && <Cart onCloseCart={toggleCart} />}

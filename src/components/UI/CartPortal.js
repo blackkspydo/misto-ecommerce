@@ -4,7 +4,6 @@ import { Fragment } from "react";
 const Backdrop = (props) => {
     const onCloseCart=()=>{
         props.toggleCart();
-        console.log("run");
     }
 	return <div className={styles.backdrop} onClick={onCloseCart}></div>;
 };
