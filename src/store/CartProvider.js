@@ -3,16 +3,23 @@ import { useReducer } from "react";
 
 const cartReducer = (state, action) => {
 	switch (action.type) {
-		case "ADD_ITEM":
-			return {
+		case "ADD_ITEM": {
+			const newCartList = {
 				...state,
-				items: [...state.items, action.id],
+				items: [
+					...state.items,
+					action.product
+				],
 			};
+			// store it in localstorage
+			localStorage.setItem("cart", JSON.stringify(newCartList.items));
+			return newCartList;
+		}
 
 		case "REMOVE_ITEM":
 			return {
 				...state,
-				items: state.items.filter((item) => item !== action.id),
+				items: state.items.filter((item) => item.id !== action.id),
 			};
 		case "CLEAR_CART":
 			return {
@@ -25,33 +32,33 @@ const cartReducer = (state, action) => {
 };
 
 const CartProvider = (props) => {
-    const [cartState, dispatchCartState] = useReducer(cartReducer, {
-        items: [],
-    });
-    const cartContext = {
-        items: cartState.items,
-        addItem: (id) => {
-            dispatchCartState({
-                type: "ADD_ITEM",
-                id,
-            });
-        },
-        removeItem: (id) => {
-            dispatchCartState({
-                type: "REMOVE_ITEM",
-                id,
-            });
-        },
-        clearCart: () => {
-            dispatchCartState({
-                type: "CLEAR_CART",
-            });
-        },
-    };
-    return (
-        <CartContext.Provider value={cartContext}>
-            {props.children}
-        </CartContext.Provider>
-    );
-}
+	const [cartState, dispatchCartState] = useReducer(cartReducer, {
+		items: [],
+	});
+	const cartContext = {
+		items: cartState.items,
+		addItem: (product) => {
+			dispatchCartState({
+				type: "ADD_ITEM",
+				product,
+			});
+		},
+		removeItem: (id) => {
+			dispatchCartState({
+				type: "REMOVE_ITEM",
+				id,
+			});
+		},
+		clearCart: () => {
+			dispatchCartState({
+				type: "CLEAR_CART",
+			});
+		},
+	};
+	return (
+		<CartContext.Provider value={cartContext}>
+			{props.children}
+		</CartContext.Provider>
+	);
+};
 export default CartProvider;

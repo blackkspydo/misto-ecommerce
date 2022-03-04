@@ -9,20 +9,22 @@ import styles from "./CartButton.module.css";
 const CartButton = (props) => {
 	const [added, setadded] = useState(false);
 	const ctx = useContext(CartContext);
-	const addToCartHandler = (id) => {
+	const addToCartHandler = (product) => {
 		setadded(!added);
 		if (!added){
-			ctx.addItem(id);
+			ctx.addItem(product);
 		}else{
-			ctx.removeItem(id);
+			ctx.removeItem(product.id);
 		}
 
 	};
+
+	// get cart from local storage
 	return (
 		<div className={styles.cartContainer}>
 			{/* <input type="number" min={0} max={100} /> */}
-			<button onClick={()=>addToCartHandler(props.productId)} className={styles.cartButton}>
-				{!added ? (
+			<button onClick={()=>addToCartHandler(props.product)} className={styles.cartButton}>
+				{!added ?  (
 					<motion.span className={styles.cartButton__icon}>
 						<MdOutlineAddShoppingCart />
 					</motion.span>
