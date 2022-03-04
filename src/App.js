@@ -11,28 +11,36 @@ import Footer from "./components/Layout/Footer/Footer";
 import Blog from "./components/Layout/Blog/Blog";
 import Cart from "./components/Cart/Cart";
 function App() {
-	const [cartIsShown, setCartIsShown] = useState(false)
+	const [cartIsShown, setCartIsShown] = useState(false);
+	const noScroll = () => {
+		document.body.style.overflow = "hidden";
+	};
+	// remove no scroll to body
+	const scroll = () => {
+		document.body.style.overflow = "";
+	};
 	const toggleCart = () => {
-		setCartIsShown(!cartIsShown)
-	}
+		setCartIsShown((cartIsShown) => !cartIsShown);
+		!cartIsShown ? noScroll() : scroll();
+	};
+	// add no scroll to body
 	return (
 		<div className="App">
-			 {cartIsShown&&<Cart onCloseCart = {toggleCart} />}
-			<Header showCartHandler={toggleCart}/>
+			{cartIsShown && <Cart onCloseCart={toggleCart} />}
+			<Header showCartHandler={toggleCart} />
 			<Hero />
 			<div className="product-section">
-			<Women />
-			<Men />
-			<Accessories />
+				<Women />
+				<Men />
+				<Accessories />
 			</div>
 			<SaleBanner />
 			<Newsletter />
 			<div className="product-section">
-			<Blog />
+				<Blog />
 			</div>
-	
-			<Footer />
 
+			<Footer />
 		</div>
 	);
 }

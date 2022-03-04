@@ -10,12 +10,15 @@ const CartButton = (props) => {
 	const [added, setadded] = useState(false);
 	const ctx = useContext(CartContext);
 	const addToCartHandler = (product) => {
-		setadded(!added);
+		setadded((added)=>!added);
 		if (!added) {
 			ctx.addItem(product);
 		} else {
 			ctx.removeItem(product.id);
 		}
+		setTimeout(() => {
+			setadded((added)=>!added);
+		}	, 5000);
 	};
 	return (
 		<div className={styles.cartContainer}>
