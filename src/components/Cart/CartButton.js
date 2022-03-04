@@ -17,7 +17,6 @@ const CartButton = (props) => {
 			ctx.removeItem(product.id);
 		}
 	};
-
 	return (
 		<div className={styles.cartContainer}>
 			{/* <input type="number" min={0} max={100} /> */}
