@@ -1,8 +1,7 @@
 import styles from "./Footer.module.css";
-import { GrLocation } from "react-icons/gr";
 import { BsTelephone, BsEnvelope, BsFillSuitHeartFill } from "react-icons/bs";
 import { AiOutlineClockCircle } from "react-icons/ai";
-
+import {GoLocation} from 'react-icons/go'
 const Footer = () => {
 	return (
 		<footer className={styles.footer}>
@@ -54,7 +53,7 @@ const Footer = () => {
 			<div className={styles.socials}>
 				<h3>Contact Us</h3>
 				<a href="/" className={styles.item}>
-					<GrLocation />
+					<GoLocation />
 					<span>Kathmandu, Nepal</span>
 				</a>
 				<a href="tel:+9779800000000" className={styles.item}>

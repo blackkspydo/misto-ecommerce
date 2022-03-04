@@ -3,6 +3,7 @@ import {BsGlobe} from 'react-icons/bs';
 import {MdPersonOutline} from 'react-icons/md';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import styles from './DashNav.module.css';
+import CartCounter from '../../Cart/CartCounter';
 const DashNav = () => {
 	return (
 		<div className={styles.dashNav}>
@@ -16,7 +17,7 @@ const DashNav = () => {
                 <MdPersonOutline />
             </div>
 			<div className={styles.dashNav__item}>
-                <AiOutlineShoppingCart />
+                <AiOutlineShoppingCart /> <CartCounter />
             </div>
 		</div>
 	);

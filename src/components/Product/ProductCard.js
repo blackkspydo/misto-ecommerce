@@ -2,6 +2,8 @@ import styles from "./ProductCard.module.css";
 import { Rating } from "react-simple-star-rating";
 import CartButton from "../Cart/CartButton";
 const ProductCard = (props) => {
+	
+	
 	return (
 		<div className={`${styles.productCard} ${styles[`${props.class}`]}`}>
 			<div className={styles.productCard__image}>
@@ -12,7 +14,7 @@ const ProductCard = (props) => {
 				<div className={styles.productCard__text__price}>
 					<p className={styles.price}>${props.product.price}</p>
 					{/* rating */}
-					<CartButton />
+					<CartButton productId={props.product.id}/>
 					<div className={styles.rating}>
 						({props.product.rating.count})
 						<Rating

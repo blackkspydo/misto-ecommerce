@@ -8,7 +8,7 @@ const Blog = () => {
     })
 	return (
 		<div className={styles.blog}>
-			<h2>Latest From Blog</h2>
+			<h2>Latest From Blog :</h2>
             <div className={styles.blog_cards}>{blogs}</div>
 		</div>
 	);
