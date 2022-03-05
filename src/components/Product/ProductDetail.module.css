@@ -1,4 +1,7 @@
-
+.productDetail{
+    max-width: 1500px;
+    margin: 0 auto;
+}
 .headerContainer{
     height: 150px;
     /* font-size: 2.5rem; */
@@ -56,7 +59,7 @@
     width: 100%;
     height: auto;
     max-width: 40%;
-    /* max-height: 500px; */
+    max-height: 600px;
     margin: 0 auto;
     border: 1px solid #ccc;
     display: flex;

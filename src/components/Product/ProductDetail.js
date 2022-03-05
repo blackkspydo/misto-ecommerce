@@ -28,7 +28,7 @@ const ProductDetail = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch(
-				`https://fakestoreapi.com/products/category/${product.category}?limit=4`
+				`https://fakestoreapi.com/products/category/${product.category}?limit=5`
 			);
 			const data = await response.json();
 			const newData = data.filter((item) => item.id !== product.id);

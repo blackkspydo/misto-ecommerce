@@ -1,7 +1,7 @@
 import styles from "./Footer.module.css";
 import { BsTelephone, BsEnvelope, BsFillSuitHeartFill } from "react-icons/bs";
 import { AiOutlineClockCircle } from "react-icons/ai";
-import {GoLocation} from 'react-icons/go'
+import { GoLocation } from "react-icons/go";
 const Footer = () => {
 	return (
 		<footer className={styles.footer}>
@@ -73,7 +73,7 @@ const Footer = () => {
 			<div className={styles.copyright}>
 				<p> © 2022 Misto. All Rights Reserved.</p>
 				<p>
-					Made by <a href="blackkspydo.com">Blackkspydo</a> with{" "}
+					Made by <a href="https://blackkspydo.com">Blackkspydo</a> with{" "}
 					<BsFillSuitHeartFill />{" "}
 				</p>
 			</div>
