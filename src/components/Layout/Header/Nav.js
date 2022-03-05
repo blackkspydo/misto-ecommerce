@@ -1,10 +1,11 @@
 import styles from "./Nav.module.css";
-
+import { NavLink } from "react-router-dom";
 const Nav = () => {
 	const navItem = [
 		{ name: "Home", link: "/" },
-		{ name: "Male", link: "/male" },
-		{ name: "Female", link: "/female" },
+		{ name: "Men", link: "/men" },
+		{ name: "Women", link: "/women" },
+		{ name: "Accessories", link: "/accessories" },
 		{ name: "Blog", link: "/blog" },
 		{ name: "Contact", link: "/contact" },
 	];
@@ -12,9 +13,9 @@ const Nav = () => {
 	const nav = navItem.map((item) => {
 		return (
 			<li key={item.name} className={styles.nav__list__item}>
-				<a href={item.link} className={styles.nav__list__item__link}>
+				<NavLink to={item.link} className={styles.nav__list__item__link}>
 					{item.name}
-				</a>
+				</NavLink>
 			</li>
 		);
 	});

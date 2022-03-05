@@ -1,15 +1,14 @@
 import "./App.css";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Layout/Header/Header";
-import Hero from "./components/Layout/Hero/Hero";
-import Women from "./components/Layout/ProductSection/Women";
-import Men from "./components/Layout/ProductSection/Men";
-import Accessories from "./components/Layout/ProductSection/Accessories";
-import SaleBanner from "./components/Layout/SaleBanner/SaleBanner";
-import Newsletter from "./components/Layout/newsletter/Newsletter";
 import Footer from "./components/Layout/Footer/Footer";
-import Blog from "./components/Layout/Blog/Blog";
 import Cart from "./components/Cart/Cart";
+import Homepage from "./pages/Homepage";
+import MenPage from "./pages/Men/MenPage";
+import WomenPage from "./pages/Women/WomenPage";
+import AccessoriesPage from "./pages/Accessories/AccessoriesPage";
+
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
 	// add no scroll to body
@@ -21,7 +20,7 @@ function App() {
 	const scroll = () => {
 		document.body.style.overflow = "";
 	};
-	
+
 	const toggleCart = () => {
 		setCartIsShown((cartIsShown) => !cartIsShown);
 		!cartIsShown ? noScroll() : scroll();
@@ -31,18 +30,14 @@ function App() {
 		<div className="App">
 			{cartIsShown && <Cart onCloseCart={toggleCart} />}
 			<Header showCartHandler={toggleCart} />
-			<Hero />
-			<div className="product-section">
-				<Women />
-				<Men />
-				<Accessories />
-			</div>
-			<SaleBanner />
-			<Newsletter />
-			<div className="product-section">
-				<Blog />
-			</div>
-
+			<main>
+				<Routes>
+					<Route path="/" exact element={<Homepage toggleCart={toggleCart} cartIsShown={cartIsShown} />} />
+					<Route path="/men" exact element={<MenPage />} />
+					<Route path="/women" exact element={<WomenPage />} />
+					<Route path="/accessories" exact element={<AccessoriesPage />} />
+				</Routes>
+			</main>
 			<Footer />
 		</div>
 	);

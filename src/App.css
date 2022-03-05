@@ -28,3 +28,9 @@
 .noscroll {
   overflow: hidden;
 }
+a.active{
+  color: #000 !important;
+}
+main{
+  margin-top: 10rem;
+}

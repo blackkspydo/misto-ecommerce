@@ -18,18 +18,18 @@ const Hero = (props) => {
 					text={"Visit Shop"}
 					link={"/shop"}
 				/>
-				<HeroCard class={"male"} image={male} text={"Male"} link={"/male"} />
+				<HeroCard class={"male"} image={male} text={"Men"} link={"/men"} />
 				<HeroCard
 					class={"female"}
 					image={female}
-					text={"Female"}
-					link={"/female"}
+					text={"Women"}
+					link={"/women"}
 				/>
 				<HeroCard
 					class={"accesories"}
 					image={accesories}
 					text={"Accessories"}
-					link={"/accesories"}
+					link={"/accessories"}
 				/>
 			</div>
 			<div className={styles.subSection}>
