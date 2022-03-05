@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "../../Product/ProductCard";
 import Loader from "../../UI/Loader";
+import { motion } from "framer-motion";
 // import LoadMoreButton from "../../UI/LoadMoreButton";
 import styles from "./Women.module.css";
 const Women = () => {
@@ -20,11 +21,11 @@ const Women = () => {
 		<div className={styles.womenSection}>
 			<h2>Women Clothings: </h2>
 			{womenCategory.length ? (
-				<div className={styles.products}>
+				<motion.div layout animate={{}} className={styles.products}>
 					{womenCategoryList}
 					{womenCategoryList}
 					{/* <LoadMoreButton content={womenCategoryList} /> */}
-				</div>
+				</motion.div>
 			) : (
 				<Loader />
 			)}

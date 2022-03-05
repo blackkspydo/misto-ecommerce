@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import MenPage from "./pages/Men/MenPage";
 import WomenPage from "./pages/Women/WomenPage";
 import AccessoriesPage from "./pages/Accessories/AccessoriesPage";
+import ProductDetail from "./components/Product/ProductDetail";
 
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
@@ -36,6 +37,7 @@ function App() {
 					<Route path="/men" exact element={<MenPage />} />
 					<Route path="/women" exact element={<WomenPage />} />
 					<Route path="/accessories" exact element={<AccessoriesPage />} />
+					<Route path="/:productCategory/:productId" exact element={<ProductDetail />} />
 				</Routes>
 			</main>
 			<Footer />

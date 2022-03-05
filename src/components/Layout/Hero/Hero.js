@@ -29,7 +29,7 @@ const Hero = (props) => {
 					class={"accesories"}
 					image={accesories}
 					text={"Accessories"}
-					link={"/accessories"}
+					link={"/accesories"}
 				/>
 			</div>
 			<div className={styles.subSection}>

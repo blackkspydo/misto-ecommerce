@@ -32,5 +32,8 @@ a.active{
   color: #000 !important;
 }
 main{
-  margin-top: 10rem;
+  margin-top: 7.5rem;
+}
+.magnifying-glass{
+  background-color: #fff!important;
 }
