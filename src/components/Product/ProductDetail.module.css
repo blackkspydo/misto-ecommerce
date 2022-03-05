@@ -158,3 +158,13 @@
     font-weight: 500;
 
 }
+.similarProducts{
+    margin: 5rem 3rem;
+}
+.similarProducts__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 3rem auto;
+}

@@ -9,10 +9,11 @@ import { MdOutlineLocalShipping } from "react-icons/md";
 import { BsArrowRepeat } from "react-icons/bs";
 import { MdSupportAgent } from "react-icons/md";
 import { Link } from "react-router-dom";
+import SimilarProducts from "./SimilarProducts";
 const ProductDetail = () => {
 	const { productId, productCategory } = useParams();
 	const [product, setProduct] = useState([]);
-    const [relatedProduct, setRelatedProduct] = useState([]);
+	const [relatedProduct, setRelatedProduct] = useState([]);
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await fetch(
@@ -20,10 +21,9 @@ const ProductDetail = () => {
 			);
 			const data = await response.json();
 			setProduct(data);
-			
 		};
 		fetchData();
-	}, []);
+	}, [productId]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -31,12 +31,16 @@ const ProductDetail = () => {
 				`https://fakestoreapi.com/products/category/${product.category}?limit=4`
 			);
 			const data = await response.json();
-            const newData = data.filter((item) => item.id !== product.id);
+			const newData = data.filter((item) => item.id !== product.id);
 			setRelatedProduct(newData);
-			
 		};
 		fetchData();
-	}, []);
+		
+	}, [product.id]);
+	console.log(relatedProduct);
+	const relatedProducts = relatedProduct.map((item) => {
+		return <SimilarProducts key={item.id} product={item} />;
+	});
 
 	return (
 		<div className={styles.productDetail}>
@@ -48,7 +52,10 @@ const ProductDetail = () => {
 					{" > "}
 					<Link to={`/${productCategory}/${product.id}`}>{product.title}</Link>
 				</div>
-				<div className={styles.header__title}>{productCategory}{(productCategory==="men"||"women")?"'s Clothing":""}</div>
+				<div className={styles.header__title}>
+					{productCategory}
+					{productCategory === "men" || "women" ? "'s Clothing" : ""}
+				</div>
 				<div className={styles.header__sku}>SKU: {productId}</div>
 			</div>
 			<div className={styles.productDetail__content}>
@@ -116,6 +123,12 @@ const ProductDetail = () => {
 				) : (
 					<Loader />
 				)}
+			</div>
+			<div className={styles.similarProducts}>
+				<h2>Similar Products</h2>
+				<div className={styles.similarProducts__container}>
+					{relatedProduct.length? relatedProducts : <Loader />}
+				</div>
 			</div>
 		</div>
 	);
