@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background-color: #fff;
+    background-color: var(--bg-color);
     padding-bottom: 0.8rem;
     /* margin-left: 10em; */
 }

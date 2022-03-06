@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchPortal from "../../../UI/SearchPortal";
 import { IoMdCloseCircle } from "react-icons/io";
+import {motion} from "framer-motion";
 const Search = (props) => {
 	const [search, setSearch] = useState("");
 	let data, searchResult;
@@ -35,7 +36,11 @@ const Search = (props) => {
 					cat = "accessories";
 				}
 				return (
-					<div
+					<motion.div
+						layout
+						initial={{opacity:0}}
+						animate={{opacity:1}}
+						transition={{duration:1}}
 						className={styles.search__result}
 						onClick={() => setSearch("")}
 						key={item.id}
@@ -47,7 +52,7 @@ const Search = (props) => {
 							<p>{item.title}</p>
 							<p>${item.price}</p>
 						</Link>
-					</div>
+					</motion.div>
 				);
 			} else {
 				return null;
@@ -63,7 +68,7 @@ const Search = (props) => {
 			<div className={styles.closeButton} onClick={closeHandler} >
 				<IoMdCloseCircle />
 			</div>
-			<form onSubmit={onSubmitHandler}>
+			<form className={styles.form} onSubmit={onSubmitHandler}>
 				<input
 					type="text"
 					placeholder="Search..."
@@ -72,7 +77,7 @@ const Search = (props) => {
 					value={search}
 				/>
 			</form>
-			<div className={styles.search__results}>{searchResult}</div>
+			<motion.div layout className={styles.search__results}>{searchResult}</motion.div>
 		</SearchPortal>
 	)
 };

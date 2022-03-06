@@ -9,6 +9,7 @@ import { MdOutlineLocalShipping } from "react-icons/md";
 import { BsArrowRepeat } from "react-icons/bs";
 import { MdSupportAgent } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import SimilarProducts from "./SimilarProducts";
 const ProductDetail = () => {
 	const { productId, productCategory } = useParams();
@@ -35,7 +36,6 @@ const ProductDetail = () => {
 			setRelatedProduct(newData);
 		};
 		fetchData();
-		
 	}, [product.id]);
 	console.log(relatedProduct);
 	const relatedProducts = relatedProduct.map((item) => {
@@ -43,7 +43,17 @@ const ProductDetail = () => {
 	});
 
 	return (
-		<div className={styles.productDetail}>
+		<motion.div
+			key={styles.productDetail}
+			animate={{
+				opacity: 1,
+			}}
+			initial={{ opacity: 0 }}
+			exit={{ opacity: 0 }}
+			// exit={{ opacity: 0, x: "100vw" }}
+			transition={{ duration: 0.8 }}
+			className={styles.productDetail}
+		>
 			<div className={styles.headerContainer}>
 				<div className={styles.nav}>
 					<Link to="/">Home</Link>
@@ -127,10 +137,10 @@ const ProductDetail = () => {
 			<div className={styles.similarProducts}>
 				<h2>Similar Products</h2>
 				<div className={styles.similarProducts__container}>
-					{relatedProduct.length? relatedProducts : <Loader />}
+					{relatedProduct.length ? relatedProducts : <Loader />}
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 

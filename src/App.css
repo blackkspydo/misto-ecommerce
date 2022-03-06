@@ -41,4 +41,5 @@ main{
 /* add smooth scroll */
 .App{
   scroll-behavior: smooth;
+  
 }
