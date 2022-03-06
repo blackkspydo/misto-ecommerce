@@ -10,10 +10,12 @@ import WomenPage from "./pages/Women/WomenPage";
 import AccessoriesPage from "./pages/Accessories/AccessoriesPage";
 import ProductDetail from "./components/Product/ProductDetail";
 import Search from "./components/Layout/Header/Search/Search";
+import Contact from "./pages/Contact/Contact";
+import ShopPage from "./pages/Shop/ShopPage";
 import ScrollToTop from "./components/UI/ScrollToTop";
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
-	const [searchIsShown, setsearchIsShown] = useState(true);
+	const [searchIsShown, setsearchIsShown] = useState(false);
 	// add no scroll to body
 	const noScroll = () => {
 		document.body.style.overflow = "hidden";
@@ -36,7 +38,7 @@ function App() {
 	return (
 		<div className="App">
 			{cartIsShown && <Cart onCloseCart={toggleCart} />}
-			{/* {searchIsShown && <Search onCloseSearch={toggleSearch} />} */}
+			{searchIsShown? <Search onCloseSearch={toggleSearch} /> : null}
 			<Header showCartHandler={toggleCart} showSearchHandler={toggleSearch} />
 			<main>
 				<ScrollToTop />
@@ -45,6 +47,8 @@ function App() {
 					<Route path="/men" exact element={<MenPage />} />
 					<Route path="/women" exact element={<WomenPage />} />
 					<Route path="/accessories" exact element={<AccessoriesPage />} />
+					<Route path="/contact" exact element={<Contact />} />
+					<Route path="/shop" exact element={<ShopPage />} />
 					<Route path="/:productCategory/:productId" exact element={<ProductDetail />} />
 				</Routes>
 			</main>

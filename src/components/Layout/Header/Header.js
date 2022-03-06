@@ -2,7 +2,7 @@ import styles from './Header.module.css';
 import Logo from './Logo';
 import Nav from './Nav';
 import DashNav from './DashNav';
-const Header = ({showCartHandler}) => {
+const Header = ({showCartHandler,showSearchHandler}) => {
 
  return(
    <header className={styles.header}>
@@ -11,7 +11,7 @@ const Header = ({showCartHandler}) => {
         </div>
         <div className={styles.navigation}>
           <Nav />
-          <DashNav showCartHandler={showCartHandler}/>
+          <DashNav showCartHandler={showCartHandler} showSearchHandler={showSearchHandler}/>
         </div>
    </header>
 

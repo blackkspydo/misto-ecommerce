@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchPortal from "../../../UI/SearchPortal";
 import { IoMdCloseCircle } from "react-icons/io";
-const Search = ({ onCloseSearch }) => {
+const Search = (props) => {
 	const [search, setSearch] = useState("");
 	let data, searchResult;
 	const onChangeHandler = (e) => {
@@ -55,12 +55,12 @@ const Search = ({ onCloseSearch }) => {
 		});
 	}
 	const closeHandler = () => {
-		onCloseSearch();
+		props.onCloseSearch()
 	};
 
 	return (
-		<div className={styles.search}>
-			<div className={styles.closeButton} >
+		<SearchPortal className={styles.search} toggleSearch={props.onCloseSearch}>
+			<div className={styles.closeButton} onClick={closeHandler} >
 				<IoMdCloseCircle />
 			</div>
 			<form onSubmit={onSubmitHandler}>
@@ -73,7 +73,7 @@ const Search = ({ onCloseSearch }) => {
 				/>
 			</form>
 			<div className={styles.search__results}>{searchResult}</div>
-		</div>
-	);
+		</SearchPortal>
+	)
 };
 export default Search;

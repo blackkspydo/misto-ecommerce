@@ -20,10 +20,10 @@ const SearchPortal = (props) => {
     
 	return (
 		<Fragment>
-			{createPortal(<Backdrop toggleSearch={props.onCloseSearch} />, document.getElementById("portals"))}
+			{createPortal(<Backdrop toggleSearch={props.toggleSearch} />, document.getElementById("root"))}
 			{createPortal(
 				<ModalOverlay> {props.children} </ModalOverlay>,
-				document.getElementById("portals")
+				document.getElementById("root")
 			)}
 		</Fragment>
 	);

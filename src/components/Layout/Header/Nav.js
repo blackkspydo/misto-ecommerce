@@ -22,7 +22,7 @@ const Nav = () => {
 	});
 	return (
 		<nav className={styles.nav}>
-			<Search />
+			{/* <Search /> */}
 			<ul className={styles.nav__list}>{nav}</ul>
 		</nav>
 	);
