@@ -8,7 +8,7 @@ const Cart = ({ onCloseCart }) => {
 	const [total, setTotal] = useState(0);
 	const ctx = useContext(CartContext);
 	useEffect(() => {
-		const cartItems = ctx.items;
+		const cartItems = JSON.parse(window.localStorage.getItem("cart"));
 		if (cartItems) {
 			setCart(cartItems);
 			setTotal(cartItems.reduce((acc, item) => acc + item.price, 0));
@@ -35,13 +35,20 @@ const Cart = ({ onCloseCart }) => {
 	const onCloseHandler = () => {
 		onCloseCart();
 	};
+	const clearAllHandler = () => {
+		ctx.clearCart();
+	};
 	return (
 		<CartPortal className={styles.cart} toggleCart={onCloseCart}>
 			<div className={styles.closeButton} onClick={onCloseHandler}>
 				<IoMdCloseCircle />
 			</div>
 			<h2>Your Cart</h2>
-			<div className={styles.cart__items}>{cartItems}</div>
+			<div className={styles.cart__items}>{cartItems}
+			
+			{cart.length>1?<span className={styles.clearAll} onClick={clearAllHandler}>Clear All</span>:""}
+			</div>
+
 			<div className={styles.cart__total}>
 				<p>Total: ${total.toFixed(2)}</p>
 			</div>

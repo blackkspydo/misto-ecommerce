@@ -64,7 +64,7 @@
 }
 
 .closeButton:hover {
-    color:  #e40e0e;
+    color: #e40e0e;
 }
 
 .cart__total {
@@ -73,7 +73,8 @@
     font-size: 1.8rem;
     font-weight: bold;
 }
-.cartItem__text{
+
+.cartItem__text {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -83,14 +84,26 @@
     list-style: none;
     gap: 0.5rem;
 }
-.cartItem__text__price{
+
+.cartItem__text__price {
     display: flex;
     justify-content: space-between;
 }
-.cartItem__text__price .cancel{
+
+.cartItem__text__price .cancel {
     color: #363636;
     cursor: pointer;
 }
-.cartItem__text__price .cancel:hover{
+
+.cartItem__text__price .cancel:hover {
+    color: #e40e0e;
+
+}
+
+.clearAll {
+    cursor: pointer;
+    color: var(--grey);
+}
+.clearAll:hover {
     color: #e40e0e;
 }

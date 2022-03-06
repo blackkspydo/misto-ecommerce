@@ -37,3 +37,8 @@ main{
 .magnifying-glass{
   background-color: #fff!important;
 }
+
+/* add smooth scroll */
+.App{
+  scroll-behavior: smooth;
+}

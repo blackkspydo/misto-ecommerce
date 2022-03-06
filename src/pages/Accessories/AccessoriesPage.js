@@ -1,6 +1,10 @@
+import Accessories from "../../components/Layout/ProductSection/Accessories";
+
 const AccessoriesPage = props =>{
     return (
-        <h1>This is Accessories product section</h1>
+        <div className="accessories">
+            <Accessories />
+        </div>
     )
 }
 

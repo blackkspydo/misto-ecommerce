@@ -13,14 +13,19 @@ const Women = () => {
 			.catch((err) => console.log("err"));
 	}, []);
 
-	const womenCategoryList = womenCategory.map((item) => {
+	if (womenCategory.length) {
+		window.localStorage.setItem("women", JSON.stringify(womenCategory));
+	}
+	let womenData = JSON.parse(window.localStorage.getItem("women"));
+	if(!womenData){womenData=womenCategory}
+	const womenCategoryList = womenData.map((item) => {
 		return <ProductCard key={item.id} product={item} />;
 	});
 
 	return (
 		<div className={styles.womenSection}>
 			<h2>Women Clothings: </h2>
-			{womenCategory.length ? (
+			{womenData.length ? (
 				<motion.div layout animate={{}} className={styles.products}>
 					{womenCategoryList}
 					{womenCategoryList}

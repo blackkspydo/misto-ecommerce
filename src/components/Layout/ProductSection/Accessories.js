@@ -10,8 +10,12 @@ const Accessories = () => {
             .then(json=>(setaccessoriesCategory(json)))
 			.catch(err=>console.log("err"))
 	}, []);
-
-	const accessoriesCategoryList = accessoriesCategory.map(item =>{
+	if (accessoriesCategory.length) {
+		window.localStorage.setItem("accessories", JSON.stringify(accessoriesCategory));
+	}
+	let accessoriesData = JSON.parse(window.localStorage.getItem("accessories"));
+	if(!accessoriesData){accessoriesData=accessoriesCategory}
+	const accessoriesCategoryList = accessoriesData.map(item =>{
 		return <ProductCard key={item.id} product={item} />
 	}
 	)
@@ -20,7 +24,7 @@ const Accessories = () => {
 	return (
 		<div className={styles.accessoriesSection}>
 			<h2>Accessories : </h2>
-			{accessoriesCategory.length?<div className={styles.products}>{accessoriesCategoryList}{accessoriesCategoryList}</div>:<Loader />}
+			{accessoriesData.length?<div className={styles.products}>{accessoriesCategoryList}{accessoriesCategoryList}</div>:<Loader />}
 		</div>
 	);
 };

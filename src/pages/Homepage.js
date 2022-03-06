@@ -8,9 +8,7 @@ import Newsletter from "../components/Layout/newsletter/Newsletter";
 import Blog from "../components/Layout/Blog/Blog";
 import Cart from "../components/Cart/Cart";
 const  Homepage=({ toggleCart,cartIsShown }) =>{
-
-
-
+	
 	return (
 		<>
 			{cartIsShown && <Cart onCloseCart={toggleCart} />}

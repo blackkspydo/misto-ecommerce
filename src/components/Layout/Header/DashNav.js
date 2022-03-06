@@ -4,13 +4,21 @@ import {MdPersonOutline} from 'react-icons/md';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import styles from './DashNav.module.css';
 import CartCounter from '../../Cart/CartCounter';
+import { useState } from 'react';
+import Search from './Search/Search';
 const DashNav = ({showCartHandler}) => {
     const cartToggler=()=>{
         showCartHandler();
     }
+    const [searchToggle, setsearchToggle] = useState(false);
+    const toggleSearch=()=>{
+        setsearchToggle(searchToggle=>!searchToggle);
+    }
 	return (
+
 		<div className={styles.dashNav}>
-			<div className={styles.dashNav__item}>
+            {searchToggle && <Search toggleSearch={toggleSearch} />}
+			<div className={styles.dashNav__item} onClick={toggleSearch}>
                 <BiSearchAlt />
             </div>
 			<div className={styles.dashNav__item}>

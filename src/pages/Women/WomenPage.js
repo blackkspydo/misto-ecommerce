@@ -1,6 +1,9 @@
+import Women from "../../components/Layout/ProductSection/Women";
 const WomenPage = props =>{
     return (
-        <h1>This is female product section</h1>
+        <div className="women_container">
+            <Women />
+        </div>
     )
 }
 

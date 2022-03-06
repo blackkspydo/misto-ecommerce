@@ -2,9 +2,13 @@ import styles from "./ProductCard.module.css";
 import ProductLink from "./ProductLink";
 import { Rating } from "react-simple-star-rating";
 import CartButton from "../Cart/CartButton";
+import { motion } from "framer-motion";
 const ProductCard = (props) => {
 	return (
-		<div className={`${styles.productCard} ${styles[`${props.class}`]}`}>
+		<motion.div
+			layout
+			className={`${styles.productCard} ${styles[`${props.class}`]}`}
+		>
 			<ProductLink product={props.product}>
 				<div className={styles.productCard__image}>
 					<img src={props.product.image} alt="" />
@@ -29,7 +33,7 @@ const ProductCard = (props) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 export default ProductCard;

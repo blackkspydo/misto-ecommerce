@@ -1,6 +1,11 @@
+import Men from "../../components/Layout/ProductSection/Men";
+import styles from './MenPage.module.css'
 const MenPage = props =>{
+
     return (
-        <h1>This is male product section</h1>
+        <div className={styles.Men_container}>
+        <Men />
+        </div>
     )
 }
 
