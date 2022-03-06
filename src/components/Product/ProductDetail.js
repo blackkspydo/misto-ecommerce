@@ -36,8 +36,7 @@ const ProductDetail = () => {
 			setRelatedProduct(newData);
 		};
 		fetchData();
-	}, [product.id]);
-	console.log(relatedProduct);
+	}, [product.id,product.category]);
 	const relatedProducts = relatedProduct.map((item) => {
 		return <SimilarProducts key={item.id} product={item} />;
 	});

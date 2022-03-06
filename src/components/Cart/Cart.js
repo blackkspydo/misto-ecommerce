@@ -2,10 +2,13 @@ import { useEffect, useState, useContext } from "react";
 import CartContext from "../../store/cart-context";
 import CartPortal from "../UI/CartPortal";
 import styles from "./Cart.module.css";
-import {IoMdCloseCircle} from 'react-icons/io';
-const Cart = ({ onCloseCart }) => {
+import { IoMdCloseCircle } from "react-icons/io";
+import { motion, AnimatePresence } from "framer-motion";
+
+const Cart = ({ onCloseCart,showCheckOutHandler }) => {
 	const [cart, setCart] = useState([]);
 	const [total, setTotal] = useState(0);
+	
 	const ctx = useContext(CartContext);
 	useEffect(() => {
 		const cartItems = JSON.parse(window.localStorage.getItem("cart"));
@@ -17,7 +20,21 @@ const Cart = ({ onCloseCart }) => {
 
 	const cartItems = cart.map((item) => {
 		return (
-			<div className={styles.cartItem} key={item.id}>
+			// <AnimatePresence>
+			<motion.div
+				layout={{
+					type: "spring",
+					duration: 0.5,
+					stiffness: 300,
+					damping: 30,
+				}}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 0.5 }}
+				exit={{ opacity: 0, x: 1000 }}
+				className={styles.cartItem}
+				key={item.id}
+			>
 				<div className={styles.cartItem__img}>
 					{" "}
 					<img src={item.image} alt="" />{" "}
@@ -26,10 +43,16 @@ const Cart = ({ onCloseCart }) => {
 					<p>{item.title}</p>
 					<div className={styles.cartItem__text__price}>
 						<p className={styles.price}>${item.price}</p>
-                        <p className={styles.cancel} onClick={()=>ctx.removeItem(item.id)}>Cancel{item.quantity}</p>
+						<p
+							className={styles.cancel}
+							onClick={() => ctx.removeItem(item.id)}
+						>
+							Cancel{item.quantity}
+						</p>
 					</div>
 				</div>
-			</div>
+			</motion.div>
+			// </AnimatePresence>
 		);
 	});
 	const onCloseHandler = () => {
@@ -38,19 +61,38 @@ const Cart = ({ onCloseCart }) => {
 	const clearAllHandler = () => {
 		ctx.clearCart();
 	};
+	const showCheckOutHandlerCart = () => {
+		onCloseCart();
+		showCheckOutHandler();
+	};
+	
 	return (
 		<CartPortal className={styles.cart} toggleCart={onCloseCart}>
+			
 			<div className={styles.closeButton} onClick={onCloseHandler}>
 				<IoMdCloseCircle />
 			</div>
 			<h2>Your Cart</h2>
-			<div className={styles.cart__items}>{cartItems}
-			
-			{cart.length>1?<span className={styles.clearAll} onClick={clearAllHandler}>Clear All</span>:""}
-			</div>
+			<AnimatePresence>
+				<motion.div
+					key={styles.cart__items}
+					layout
+					className={styles.cart__items}
+				>
+					{cartItems}
 
+					{cart.length > 1 ? (
+						<span className={styles.clearAll} onClick={clearAllHandler}>
+							Clear All
+						</span>
+					) : (
+						""
+					)}
+				</motion.div>
+			</AnimatePresence>
 			<div className={styles.cart__total}>
 				<p>Total: ${total.toFixed(2)}</p>
+				<button onClick={showCheckOutHandlerCart}>CheckOut</button>
 			</div>
 		</CartPortal>
 	);

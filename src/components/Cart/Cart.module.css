@@ -104,6 +104,28 @@
     cursor: pointer;
     color: var(--grey);
 }
+
 .clearAll:hover {
     color: #e40e0e;
+}
+
+.cart__total {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+.cart__total button {
+    background-color: var(--grey);
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
 }

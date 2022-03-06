@@ -13,9 +13,11 @@ import Search from "./components/Layout/Header/Search/Search";
 import Contact from "./pages/Contact/Contact";
 import ShopPage from "./pages/Shop/ShopPage";
 import ScrollToTop from "./components/UI/ScrollToTop";
+import CheckOut from "./components/Layout/CheckOut/CheckOut";
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
 	const [searchIsShown, setsearchIsShown] = useState(false);
+	const [checkoutToggle, setcheckoutToggle] = useState(false);
 	// add no scroll to body
 	const noScroll = () => {
 		document.body.style.overflow = "hidden";
@@ -34,16 +36,21 @@ function App() {
 		setsearchIsShown((searchIsShown) => !searchIsShown);
 		!searchIsShown ? noScroll() : scroll();
 	};
-
+	const toggleCheckOut=()=>{
+		setcheckoutToggle(checkoutToggle=>!checkoutToggle);
+	}
 	return (
 		<div className="App">
-			{cartIsShown && <Cart onCloseCart={toggleCart} />}
+			{cartIsShown && <Cart onCloseCart={toggleCart} showCheckOutHandler={toggleCheckOut} />}
 			{searchIsShown? <Search onCloseSearch={toggleSearch} /> : null}
+			{checkoutToggle&& <CheckOut onCloseCheckOut={toggleCheckOut} />}
 			<Header showCartHandler={toggleCart} showSearchHandler={toggleSearch} />
 			<main>
 				<ScrollToTop />
 				<Routes>
-					<Route path="/" exact element={<Homepage toggleCart={toggleCart} cartIsShown={cartIsShown} />} />
+					<Route path="/" exact element={<Homepage toggleCart={toggleCart} 
+					// cartIsShown={cartIsShown}
+					  />} />
 					<Route path="/men" exact element={<MenPage />} />
 					<Route path="/women" exact element={<WomenPage />} />
 					<Route path="/accessories" exact element={<AccessoriesPage />} />
