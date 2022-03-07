@@ -4,6 +4,7 @@
     overflow: hidden;
     border: 1px solid #ebe8e8b4;
     color: #555555;
+    background-color: #fff;
 }
 a.productCard{
     text-decoration: none;
@@ -14,6 +15,8 @@ a.productCard{
     height: 350px;
     padding: 20px;    
     transition: all 0.3s ease-in-out;
+    background-color: #fff!important;
+    /* border-bottom: 1px solid #ebe8e8b4; */
 
 }
 .productCard__image:hover{
@@ -32,6 +35,8 @@ a.productCard{
     /* overflow: hidden; */
     font-size: 0.8rem;
     position: relative;
+    border-top: 1px solid #ebe8e8b4;
+   
     
 }
 .productCard__text h3{

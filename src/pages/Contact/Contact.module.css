@@ -147,3 +147,12 @@
 .form button:hover{
     background-color: #373737;
 }
+
+
+.error{
+    color: red;
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}

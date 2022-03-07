@@ -6,17 +6,50 @@ import { Link } from "react-router-dom";
 // import contactus from "../../assets/contactus.jpg";
 const Contact = () => {
 	const [toggleButton, settoggleButton] = useState(false);
-	const clearForm = () => {
-		document.getElementById("name").value = "";
-		document.getElementById("email").value = "";
-		document.getElementById("message").value = "";
-	};
-	const submitHandler = (e) => {
+	const [email, setEmail] = useState("");
+	const [name, setName] = useState("");
+	const [message, setMessage] = useState("");
+	const [error, setError] = useState("");
+
+	const onSubmitHandler = (e) => {
 		e.preventDefault();
-		console.log("submit");
-		settoggleButton((toggleButton) => !toggleButton);
-		clearForm();
+		if (email.length === 0 && name.length === 0 && message.length === 0) {
+			setError("All fields are required");
+			return false;
+		} else if (email.length === 0) {
+			setError("Email is required");
+			return false;
+		} else if (name.length === 0) {
+			setError("Name is required");
+			return false;
+		} else if (message.length === 0) {
+			setError("Message is required");
+			return false;
+		}
+		setEmail("");
+		setName("");
+		setMessage("");
+		settoggleButton(true);
+		setTimeout(() => {
+			settoggleButton(false);
+		}
+		, 2000);
+		
 	};
+
+	const onNameChangeHandler = (e) => {
+		setName(e.target.value);
+	};
+	const onEmailChangeHandler = (e) => {
+		setEmail(e.target.value);
+	};
+	const onMessageChangeHandler = (e) => {
+		setMessage(e.target.value);
+	};
+
+
+
+
 	return (
 		<motion.div
 			key="contact"
@@ -48,10 +81,11 @@ const Contact = () => {
 						are here to help you.
 					</p>
 				</div>
-				<form className={styles.form} onSubmit={submitHandler}>
-					<input id="name" type="text" placeholder="Name" />
-					<input id="email" type="email" placeholder="Email" />
-					<textarea id="message" placeholder="Message"></textarea>
+				<form className={styles.form} onSubmit={onSubmitHandler}>
+					<input onChange={onNameChangeHandler} id="name" type="text" value={name} placeholder="Name" />
+					<input onChange={onEmailChangeHandler} id="email" type="email" value={email} placeholder="Email" />
+					<textarea onChange={onMessageChangeHandler} id="message" placeholder="Message"value={message}></textarea>
+					<p className={styles.error}>{error}</p>
 					<motion.button>
 						{!toggleButton ? (
 							<AnimatePresence>
