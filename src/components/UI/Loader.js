@@ -6,7 +6,7 @@ const Loader = (props) => {
 			<div className={styles.loader__spinner}>
 				<SVGLoader {...props} width={"100%"} height={"100%"} />
 			</div>
-                <div className={styles.loading__text}>loading...</div>
+                <p className={styles.loading__text}>loading...</p>
 		</div>
 	);
 };

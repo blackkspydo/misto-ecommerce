@@ -1,6 +1,6 @@
 import styles from "./Login.module.css";
 import { useState, useEffect } from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
 const Login = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -80,7 +80,14 @@ const Login = (props) => {
 
 
 	return (
-		<div className={styles.login}>
+		<AnimatePresence>
+		<motion.div
+		initial={{ opacity: 0, }}
+		animate={{ opacity: 1,  }}
+		exit={{ x: -1000 }}
+		transition={{ duration: 0.7 }}
+		
+		className={styles.login}>
 			<div className={styles.login__header}>
 				<div className={styles.login__header__title}>
 					<h2>Login to checkout</h2>
@@ -111,7 +118,8 @@ const Login = (props) => {
 					<div className={styles.note}>( put any valid email and password )</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
+		</AnimatePresence>
 	);
 };
 export default Login;

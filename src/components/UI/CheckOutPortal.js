@@ -1,13 +1,16 @@
 import styles from "./CheckOutPortal.module.css";
 import { createPortal } from "react-dom";
 import { Fragment } from "react";
+
 const Backdrop = (props) => {
-    const toggleSearchHandler=()=>{
-        props.toggleSearch();
-    }
-	return <div className={styles.backdrop} onClick={toggleSearchHandler}></div>;
+	const toggleCheckOutHandler = () => {
+		props.onCloseCheckOut();
+	};
+	return <div className={styles.backdrop} onClick={toggleCheckOutHandler}></div>;
 };
 const ModalOverlay = (props) => {
+	// add cool flip entry and exit animation with framer motion
+
 	return (
 		<div className={styles.modal}>
 			<div className={styles.content}>{props.children}</div>
@@ -15,12 +18,13 @@ const ModalOverlay = (props) => {
 	);
 };
 
-
 const CheckOutPortal = (props) => {
-    
 	return (
 		<Fragment>
-			{createPortal(<Backdrop toggleSearch={props.toggleSearch} />, document.getElementById("portals"))}
+			{createPortal(
+				<Backdrop onCloseCheckOut={props.onCloseCheckOut} />,
+				document.getElementById("portals")
+			)}
 			{createPortal(
 				<ModalOverlay> {props.children} </ModalOverlay>,
 				document.getElementById("portals")
