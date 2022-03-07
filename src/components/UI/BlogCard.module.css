@@ -1,6 +1,7 @@
 .blog_item{
-    width: 27%;
+    width: 100%;
     position: relative;
+    margin-bottom: 8rem;
 }
 .blog__img img{
     width: 100%;
@@ -10,6 +11,7 @@
 .blog__text{
     position: absolute;
     bottom: -4rem;
+    top: 60%;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -17,4 +19,5 @@
     background: #fff;
     color: var(--grey);
     /* text-align: center; */
+    font-size:clamp(1rem, 2.5vw, 1.3rem);
 }

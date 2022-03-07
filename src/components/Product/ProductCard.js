@@ -19,9 +19,11 @@ const ProductCard = (props) => {
 					<h3>{props.product.title}</h3>
 				</ProductLink>
 				<div className={styles.productCard__text__price}>
-					<p className={styles.price}>${props.product.price}</p>
-					{/* rating */}
-					<CartButton product={props.product} id={props.product.id} />
+					<div className={styles.price__container}>
+						<p className={styles.price}>${props.product.price}</p>
+						{/* rating */}
+						<CartButton product={props.product} id={props.product.id} />
+					</div>
 					<div className={styles.rating}>
 						({props.product.rating.count})
 						<Rating

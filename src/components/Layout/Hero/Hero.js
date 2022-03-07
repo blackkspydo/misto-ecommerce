@@ -7,11 +7,13 @@ import female2 from "../../../assets/Hero/women.jpeg";
 import { MdOutlineLocalShipping } from "react-icons/md";
 import { BsArrowRepeat } from "react-icons/bs";
 import { MdSupportAgent } from "react-icons/md";
-
+import {motion} from 'framer-motion'
 const Hero = (props) => {
 	return (
 		<div className={styles.heroContainer}>
-			<div className={styles.hero}>
+			<motion.div
+			 layout
+			className={styles.hero}>
 				<HeroCard
 					class={"main"}
 					image={female2}
@@ -31,7 +33,7 @@ const Hero = (props) => {
 					text={"Accessories"}
 					link={"/accessories"}
 				/>
-			</div>
+			</motion.div>
 			<div className={styles.subSection}>
 				<div className={styles.subSection__item}>
 					<div className={styles.subSection__item__icon}>
