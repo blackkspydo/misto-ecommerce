@@ -52,7 +52,7 @@ const Search = (props) => {
 							<div className={styles.image}>
 								<img src={item.image} alt="" />
 							</div>
-							<p>{item.title}</p>
+							<p>{item.title.substr(0, 30) + "..."}</p>
 							<p>${item.price}</p>
 						</Link>
 					</motion.div>

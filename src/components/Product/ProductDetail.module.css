@@ -164,11 +164,17 @@
 }
 .similarProducts{
     margin: 5rem 3rem;
+    overflow-x:scroll ;
+    scrollbar-width: none;
 }
 .similarProducts__container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 20px;
+    justify-items: center;
     margin: 3rem auto;
+
+}
+.similarProducts::-webkit-scrollbar {
+    display: none;
 }

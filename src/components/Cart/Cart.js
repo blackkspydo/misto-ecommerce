@@ -40,7 +40,7 @@ const Cart = ({ onCloseCart,showCheckOutHandler }) => {
 					<img src={item.image} alt="" />{" "}
 				</div>
 				<div className={styles.cartItem__text}>
-					<p>{item.title}</p>
+					<p>{item.title.substr(0, 30) + "..."}</p>
 					<div className={styles.cartItem__text__price}>
 						<p className={styles.price}>${item.price}</p>
 						<p
