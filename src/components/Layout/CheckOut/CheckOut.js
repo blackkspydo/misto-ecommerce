@@ -39,8 +39,11 @@ const CheckOut = (props) => {
 				className={styles.cartItem}
 				key={item.id}
 			>
+				<div className={styles.cartItemImg}>
+					<img src={item.image} alt={item.name} />
+				</div>
 				<div className={styles.cartItem__text}>
-					<p>{item.title.substr(0, 25) + "..."}</p>
+					<p>{item.title.substr(0, 30) + "..."}</p>
 					<div className={styles.cartItem__text__price}>
 						<p className={styles.price}>${item.price}</p>
 					</div>
@@ -50,21 +53,23 @@ const CheckOut = (props) => {
 		);
 	});
     const onLoginHandler = () => {
-        setisLoggedIn(isLoggedIn=>!isLoggedIn);
+        setisLoggedIn(true);
     };
 	return (
 		<CheckOutPortal className={styles.checkout}>
-			{isLoggedIn?<div className={styles.checkout__header}>
+			<motion.div className={styles.checkout__container}>
+			{isLoggedIn?<div className={styles.checkout__box}>
 				<div className={styles.checkout__header__title}>
 					<h2>Checkout</h2>
 				</div>
 				<div className={styles.cart__items}>{cartItems}</div>
 				<div className={styles.cart__total}>
 					<p>Total: ${total.toFixed(2)}</p>
-                    <button onClick={onCheckOutHandler}>Proceed to Pay</button>
+                    <button onClick={onCheckOutHandler}>Confirm CheckOut</button>
 				</div>
 			</div>:
                 <Login onLoginHandler={onLoginHandler} />}
+			</motion.div>
 		</CheckOutPortal>
 	);
 };

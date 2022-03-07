@@ -19,6 +19,9 @@ const Search = (props) => {
 	const accessoriesData = JSON.parse(
 		window.localStorage.getItem("accessories")
 	);
+	const closeHandler = () => {
+		props.onCloseSearch()
+	};
 
 	if (menData && womenData && accessoriesData) {
 		data = [...menData, ...womenData, ...accessoriesData];
@@ -45,7 +48,7 @@ const Search = (props) => {
 						onClick={() => setSearch("")}
 						key={item.id}
 					>
-						<Link to={`/${cat}/${item.id}`}>
+						<Link to={`/${cat}/${item.id}`}  onClick={closeHandler}>
 							<div className={styles.image}>
 								<img src={item.image} alt="" />
 							</div>
@@ -59,9 +62,7 @@ const Search = (props) => {
 			}
 		});
 	}
-	const closeHandler = () => {
-		props.onCloseSearch()
-	};
+
 
 	return (
 		<SearchPortal className={styles.search} toggleSearch={props.onCloseSearch}>

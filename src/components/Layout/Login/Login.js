@@ -10,6 +10,9 @@ const Login = (props) => {
 		if (email.length > 2 && !email.includes("@")) {
 			setError("Email is not valid");
 			return false;
+		}else if(email.length>2 && email.includes(" ")){
+			setError("Email  cannot contain spaces");
+			return false;
 		}
 		return true;
 	};
@@ -80,7 +83,7 @@ const Login = (props) => {
 		<div className={styles.login}>
 			<div className={styles.login__header}>
 				<div className={styles.login__header__title}>
-					<h2>Login</h2>
+					<h2>Login to checkout</h2>
 				</div>
 				<div className={styles.login__header__form}>
 					<form onSubmit={onSubmitHandler}>
@@ -105,6 +108,7 @@ const Login = (props) => {
 							<button>Login</button>
 						</div>
 					</form>
+					<div className={styles.note}>( put any valid email and password )</div>
 				</div>
 			</div>
 		</div>
