@@ -33,3 +33,48 @@
     margin-right: 50px;
     border-bottom: 1px solid #e6e6e6;
 }
+.mobileNav{
+    display: flex;
+    flex-direction: column;
+    row-gap:10px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.mobileNav span:first-child{
+    width: 40px;
+    height: 3px;
+    background-color: var(--grey);
+    display: block;
+    margin-bottom: 10px;
+
+}
+.mobileNav span:last-child{
+    width: 30px;
+    height: 3px;
+    background-color: var(--grey);
+    display: block;
+
+}
+.mobileNav{
+    display: none;
+}
+@media screen and (max-width: 1010px) {
+    .mobileNav{
+        display: block;
+        position: absolute;
+        right: 1rem;
+    }
+    .navigation_mob{
+        display: none;
+    }
+    .navigation{
+        margin-right: 70px;
+    }
+    .header{
+        width: 100%;
+        padding: 0;
+        position: fixed;
+       
+    }
+}

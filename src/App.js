@@ -14,10 +14,12 @@ import Contact from "./pages/Contact/Contact";
 import ShopPage from "./pages/Shop/ShopPage";
 import ScrollToTop from "./components/UI/ScrollToTop";
 import CheckOut from "./components/Layout/CheckOut/CheckOut";
+import MobileNav from "./components/Layout/Header/MobileNav";
 function App() {
 	const [cartIsShown, setCartIsShown] = useState(false);
 	const [searchIsShown, setsearchIsShown] = useState(false);
 	const [checkoutToggle, setcheckoutToggle] = useState(false);
+	const [mobileNav, setmobileNav] = useState(false);
 	// add no scroll to body
 	const noScroll = () => {
 		document.body.style.overflow = "hidden";
@@ -38,13 +40,19 @@ function App() {
 	};
 	const toggleCheckOut=()=>{
 		setcheckoutToggle(checkoutToggle=>!checkoutToggle);
+		!checkoutToggle ? noScroll() : scroll();
 	}
+	const toggleMobileNav = () => {
+		setmobileNav((mobileNav) => !mobileNav);
+		!mobileNav ? noScroll() : scroll();
+	};
 	return (
 		<div className="App">
 			{cartIsShown && <Cart onCloseCart={toggleCart} showCheckOutHandler={toggleCheckOut} />}
 			{searchIsShown? <Search onCloseSearch={toggleSearch} /> : null}
 			{checkoutToggle&& <CheckOut onCloseCheckOut={toggleCheckOut} />}
-			<Header showCartHandler={toggleCart} showSearchHandler={toggleSearch} />
+			{mobileNav&& <MobileNav onCloseMobileNav={toggleMobileNav} />}
+			<Header showCartHandler={toggleCart} showSearchHandler={toggleSearch} onShowMobileNav={toggleMobileNav} />
 			<main>
 				<ScrollToTop />
 				<Routes>

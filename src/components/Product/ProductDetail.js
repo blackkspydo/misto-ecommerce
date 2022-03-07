@@ -59,7 +59,7 @@ const ProductDetail = () => {
 					{" > "}
 					<Link to={`/${productCategory}`}>{productCategory}</Link>
 					{" > "}
-					<Link to={`/${productCategory}/${product.id}`}>{product.title}</Link>
+					<Link to={`/${productCategory}/${product.id}`}>{product.title&&product.title.substr(0, 30) + "..."}</Link>
 				</div>
 				<div className={styles.header__title}>
 					{productCategory}

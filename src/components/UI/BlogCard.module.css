@@ -19,5 +19,5 @@
     background: #fff;
     color: var(--grey);
     /* text-align: center; */
-    font-size:clamp(1rem, 2.5vw, 1.3rem);
+    font-size:clamp(0.8rem, 2.5vw, 1rem);
 }

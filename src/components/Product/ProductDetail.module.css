@@ -8,7 +8,7 @@
     /* font-weight: bold; */
     position: relative;
     margin-bottom: 1rem;
-    padding: 1rem 2rem 1rem 9rem;
+    /* padding: 1rem 2rem 1rem 9rem; */
     text-transform: capitalize;
     background-color: rgba(42, 41, 49, 0.055);
     display: flex;
@@ -43,7 +43,9 @@
     color: #807e7e;
 }
 .header__title{
-    font-size: 3rem;
+    /* font-size: 3rem; */
+    /* responsive font size with 3rem being max and 2 rem being min */
+    font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 700;
     margin-bottom: 0.5rem;
     letter-spacing: 2px;
@@ -177,4 +179,37 @@
 }
 .similarProducts::-webkit-scrollbar {
     display: none;
+}
+
+@media screen and (max-width: 825px) {
+    .productDetail__content{
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+        flex-direction: column;
+        width: 100%;
+        margin: 3rem auto;
+    }
+    .productDetail__image{
+        width: 100%;
+        height: auto;
+        max-width: 80%;
+        min-height: 400px;
+        max-height: 600px;
+        margin: 2rem auto;
+        border: 1px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    
+    }
+    .productDetail__info{
+        width: 100%;
+        height: auto;
+        /* max-width: 300px; */
+        max-width: 90%;
+        /* max-height: 300px; */
+        margin: 0 auto;
+    }
 }

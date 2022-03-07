@@ -1,6 +1,7 @@
 .saleCard{
-    width: 50vw;
-    height: 30vw;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
     position: relative;
     text-transform: uppercase;
     /* margin-bottom: 10em; */
